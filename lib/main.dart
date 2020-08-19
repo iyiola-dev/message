@@ -6,7 +6,13 @@ import 'package:provider/provider.dart';
 
 import 'core/utils/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize firebase according to the new documentation
+  // https://firebase.flutter.dev/docs/overview#initializing-flutterfire
+  // You can move this code somewhere else
+  await Firebase.initializeApp();
   runApp((MultiProvider(providers: providers, child: MyApp())));
 }
 
