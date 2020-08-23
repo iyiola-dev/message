@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:message/core/utils/route/routeName.dart';
 
 class WebAuth extends StatelessWidget {
+  final Function toggle;
+  WebAuth({this.toggle});
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
 
@@ -131,6 +133,7 @@ class WebAuth extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           Navigator.pushNamed(context, RouteNames.websignup);
+                          //toggle();
                         },
                         child: Text(
                           "Create one",

@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:message/core/utils/route/routeName.dart';
 
 class AuthPage extends StatelessWidget {
+  final Function toggle;
+  AuthPage({this.toggle});
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
   @override
@@ -114,6 +116,7 @@ class AuthPage extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             Navigator.pushNamed(context, RouteNames.appsignup);
+                            // toggle();
                           },
                           child: Text(
                             "Create one",

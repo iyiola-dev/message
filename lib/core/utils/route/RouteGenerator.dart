@@ -6,6 +6,7 @@ import 'package:message/ui/views/divider/app/auth/app_signup.dart';
 import 'package:message/ui/views/divider/builder.dart';
 import 'package:message/ui/views/divider/web/auth/login.dart';
 import 'package:message/ui/views/divider/web/auth/webSignup.dart';
+import 'package:message/ui/widget/authenticate.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -24,6 +25,9 @@ class RouteGenerator {
         break;
       case RouteNames.websignup:
         return CustomSlideTransition(child: WebSignUp());
+        break;
+      case RouteNames.authenticate:
+        return CustomSlideTransition(child: Authenticate());
         break;
       default:
         return _errorRoute();

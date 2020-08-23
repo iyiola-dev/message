@@ -5,6 +5,8 @@ import 'package:message/ui/views/divider/app/auth/signupvm.dart';
 import 'package:provider/provider.dart';
 
 class AppSignup extends StatelessWidget {
+  final Function toggle;
+  AppSignup({this.toggle});
   @override
   Widget build(BuildContext context) {
     var model = Provider.of<Svm>(context);
@@ -157,8 +159,7 @@ class AppSignup extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.pushNamed(
-                                    context, RouteNames.appLogin);
+                                toggle();
                               },
                               child: Text(
                                 "Sign in",
