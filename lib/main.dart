@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:message/core/model/user.dart';
+import 'package:message/core/services/auth.dart';
 import 'package:message/core/utils/route/RouteGenerator.dart';
 import 'package:message/core/utils/route/routeName.dart';
 import 'package:provider/provider.dart';
@@ -20,13 +22,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return StreamProvider<Users>.value(
+      value: Auth().user,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        initialRoute: RouteNames.wrapper,
+        onGenerateRoute: RouteGenerator.generateRoute,
       ),
-      initialRoute: RouteNames.builder,
-      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

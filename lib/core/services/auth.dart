@@ -13,6 +13,10 @@ class Auth {
     }
   }
 
+  Stream<Users> get user {
+    return _auth.authStateChanges().map(_userFromFirebase);
+  }
+
   Future signinwithemail(String email, String password) async {
     try {
       UserCredential _result = await _auth.signInWithEmailAndPassword(

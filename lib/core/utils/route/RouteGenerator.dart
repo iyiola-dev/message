@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:message/core/utils/navigation/page_transition/page_transition.dart';
 import 'package:message/core/utils/route/routeName.dart';
-import 'package:message/ui/views/divider/app/app_login.dart';
-import 'package:message/ui/views/divider/app/auth/app_signup.dart';
-import 'package:message/ui/views/divider/builder.dart';
-import 'package:message/ui/views/divider/web/auth/login.dart';
-import 'package:message/ui/views/divider/web/auth/webSignup.dart';
-import 'package:message/ui/widget/authenticate.dart';
+import 'package:message/ui/views/app/auth/app_login.dart';
+import 'package:message/ui/views/app/auth/app_signup.dart';
+import 'package:message/ui/views/web/auth/login.dart';
+import 'package:message/ui/views/web/auth/webSignup.dart';
+import 'package:message/ui/widget/builder.dart';
+import 'package:message/ui/widget/Wrapper.dart';
+import 'package:message/ui/widget/authenticate/authenticate.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -15,7 +16,7 @@ class RouteGenerator {
         return CustomSlideTransition(child: AuthPage());
         break;
       case RouteNames.builder:
-        return CustomSlideTransition(child: Wrapper());
+        return CustomSlideTransition(child: BuildWrapper());
         break;
       case RouteNames.webLogin:
         return CustomSlideTransition(child: WebAuth());
@@ -28,6 +29,9 @@ class RouteGenerator {
         break;
       case RouteNames.authenticate:
         return CustomSlideTransition(child: Authenticate());
+        break;
+      case RouteNames.wrapper:
+        return CustomSlideTransition(child: Wrapper());
         break;
       default:
         return _errorRoute();
