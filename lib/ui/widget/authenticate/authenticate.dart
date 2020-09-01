@@ -3,8 +3,6 @@ import 'package:message/ui/views/app/auth/app_login.dart';
 import 'package:message/ui/views/app/auth/app_signup.dart';
 import 'package:message/ui/views/web/auth/login.dart';
 import 'package:message/ui/views/web/auth/webSignup.dart';
-import 'package:message/ui/widget/authenticate/authvm.dart';
-import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class Authenticate extends StatefulWidget {
@@ -15,12 +13,17 @@ class Authenticate extends StatefulWidget {
 }
 
 class _AuthenticateState extends State<Authenticate> {
+  bool showSignin = true;
+  void toggleView() {
+    setState(() {
+      showSignin = !showSignin;
+    });
+  }
+
   @override
   // ignore: missing_return
   Widget build(BuildContext context) {
-    var model = Provider.of<Authvm>(context);
-    var toggleView = model.toggleView();
-    if (model.showSignin == true) {
+    if (showSignin == true) {
       return ScreenTypeLayout(
         mobile: AuthPage(toggle: toggleView),
         tablet: WebAuth(toggle: toggleView),

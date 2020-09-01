@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:message/core/utils/route/routeName.dart';
 
-class AuthPage extends StatelessWidget {
+class AuthPage extends StatefulWidget {
   final Function toggle;
   AuthPage({this.toggle});
+
+  @override
+  _AuthPageState createState() => _AuthPageState();
+}
+
+class _AuthPageState extends State<AuthPage> {
   TextEditingController emailController = new TextEditingController();
+
   TextEditingController passwordController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,8 +123,8 @@ class AuthPage extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, RouteNames.appsignup);
-                            // toggle();
+                            // Navigator.pushNamed(context, RouteNames.appsignup);
+                            widget.toggle();
                           },
                           child: Text(
                             "Create one",

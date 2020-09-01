@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
-import 'package:message/core/services/auth.dart' as fb;
+import 'package:message/core/services/auth.dart';
 import 'package:message/core/services/db.dart';
 
 class Svm extends ChangeNotifier {
   Db db = new Db();
-  fb.Auth authMethods = fb.Auth();
+  Auth authMethods = Auth();
   TextEditingController userNameController = new TextEditingController();
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();

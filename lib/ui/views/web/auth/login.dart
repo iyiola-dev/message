@@ -132,8 +132,8 @@ class WebAuth extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, RouteNames.websignup);
-                          //toggle();
+                          //Navigator.pushNamed(context, RouteNames.websignup);
+                          toggle();
                         },
                         child: Text(
                           "Create one",

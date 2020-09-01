@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:message/ui/views/app/auth/app_login.dart';
 import 'package:message/ui/views/app/auth/app_signup.dart';

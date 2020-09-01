@@ -4,9 +4,15 @@ import 'package:message/core/utils/route/routeName.dart';
 import 'package:message/ui/views/app/auth/signupvm.dart';
 import 'package:provider/provider.dart';
 
-class AppSignup extends StatelessWidget {
+class AppSignup extends StatefulWidget {
   final Function toggle;
   AppSignup({this.toggle});
+
+  @override
+  _AppSignupState createState() => _AppSignupState();
+}
+
+class _AppSignupState extends State<AppSignup> {
   @override
   Widget build(BuildContext context) {
     var model = Provider.of<Svm>(context);
@@ -103,6 +109,8 @@ class AppSignup extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             model.signUp();
+                            Navigator.pushReplacementNamed(
+                                context, RouteNames.builder);
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
@@ -159,7 +167,7 @@ class AppSignup extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                toggle();
+                                widget.toggle();
                               },
                               child: Text(
                                 "Sign in",

@@ -112,6 +112,8 @@ class WebSignUp extends StatelessWidget {
                             InkWell(
                               onTap: () {
                                 model.signUp();
+                                Navigator.pushReplacementNamed(
+                                    context, RouteNames.builder);
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
@@ -168,8 +170,8 @@ class WebSignUp extends StatelessWidget {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    model.signUp();
-                                    //toggle();
+                                    //model.signUp();
+                                    toggle();
                                   },
                                   child: Text(
                                     "Sign In",

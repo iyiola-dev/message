@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:message/ui/views/app/homeapp.dart';
+import 'package:message/ui/views/app/homeview/homeapp.dart';
 import 'package:message/ui/views/web/homeWeb.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
