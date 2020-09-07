@@ -5,5 +5,5 @@ import 'package:provider/single_child_widget.dart';
 
 final providers = <SingleChildWidget>[
   ChangeNotifierProvider(create: (_) => Svm()),
-  ChangeNotifierProvider(create: (_) => AppModel())
+  ChangeNotifierProvider(create: (_) => AppModel()),
 ];
