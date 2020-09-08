@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:message/core/utils/navigation/app_navigation/app_transition.dart';
 import 'package:message/core/utils/route/routeName.dart';
+import 'package:message/ui/views/app/auth/signupvm.dart';
+import 'package:message/ui/widget/builder.dart';
+import 'package:provider/provider.dart';
 
 class WebAuth extends StatelessWidget {
   final Function toggle;
@@ -10,6 +14,8 @@ class WebAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var model = Provider.of<Svm>(context);
+
     return Scaffold(
         body: SingleChildScrollView(
       child: Container(
@@ -45,30 +51,40 @@ class WebAuth extends StatelessWidget {
                     height: 40,
                   ),
                   Form(
+                      key: model.formkey,
                       child: Column(
-                    children: [
-                      TextField(
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.mail),
-                            hintText: 'E-mail',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: Colors.white))),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.security),
-                            hintText: 'password',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: Colors.white))),
-                      )
-                    ],
-                  )),
+                        children: [
+                          TextFormField(
+                            validator: (value) {
+                              return RegExp(
+                                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                      .hasMatch(value)
+                                  ? null
+                                  : "Enter correct email";
+                            },
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.mail),
+                                hintText: 'E-mail',
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          TextFormField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.security),
+                                hintText: 'password',
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
+                          )
+                        ],
+                      )),
                   SizedBox(
                     height: 25,
                   ),
@@ -82,15 +98,21 @@ class WebAuth extends StatelessWidget {
                   SizedBox(
                     height: 30,
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      color: Colors.blue[900],
-                      height: 50,
-                      child: Center(
-                        child: Text(
-                          'Sign In',
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                  InkWell(
+                    onTap: () {
+                      model.signin();
+                      Navigation().pushToAndReplace(context, BuildWrapper());
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        color: Colors.blue[900],
+                        height: 50,
+                        child: Center(
+                          child: Text(
+                            'Sign In',
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
                         ),
                       ),
                     ),

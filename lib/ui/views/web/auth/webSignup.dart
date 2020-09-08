@@ -64,7 +64,12 @@ class WebSignUp extends StatelessWidget {
                                 key: model.formkey,
                                 child: Column(
                                   children: [
-                                    TextField(
+                                    TextFormField(
+                                      validator: (val) {
+                                        return val.isEmpty || val.length < 3
+                                            ? 'please provide a valid username not less than 3'
+                                            : null;
+                                      },
                                       controller: model.userNameController,
                                       decoration: InputDecoration(
                                           prefixIcon: Icon(Icons.person),
@@ -78,7 +83,14 @@ class WebSignUp extends StatelessWidget {
                                     SizedBox(
                                       height: 30,
                                     ),
-                                    TextField(
+                                    TextFormField(
+                                      validator: (val) {
+                                        return RegExp(
+                                                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                                .hasMatch(val)
+                                            ? null
+                                            : "Enter correct email";
+                                      },
                                       controller: model.emailController,
                                       decoration: InputDecoration(
                                           prefixIcon: Icon(Icons.mail),
@@ -92,7 +104,12 @@ class WebSignUp extends StatelessWidget {
                                     SizedBox(
                                       height: 30,
                                     ),
-                                    TextField(
+                                    TextFormField(
+                                      validator: (value) {
+                                        value.isEmpty
+                                            ? "please enter the correct password"
+                                            : null;
+                                      },
                                       controller: model.passwordController,
                                       obscureText: true,
                                       decoration: InputDecoration(
