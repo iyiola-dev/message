@@ -12,7 +12,7 @@ class _AppSearchState extends State<AppSearch> {
   TextEditingController _searchController = TextEditingController();
   Db db = Db();
   QuerySnapshot searchSnapshot;
-
+  createchatplatform(String userName) {}
   @override
   Widget build(BuildContext context) {
     return SafeArea(

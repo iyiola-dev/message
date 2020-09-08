@@ -22,16 +22,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<Users>.value(
-      value: Auth().user,
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        initialRoute: RouteNames.wrapper,
-        onGenerateRoute: RouteGenerator.generateRoute,
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      initialRoute: RouteNames.wrapper,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

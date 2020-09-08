@@ -12,4 +12,8 @@ class Db {
   uploadDocuments(userMap) {
     firestore.collection("users").add(userMap);
   }
+
+  createChatroom(String chatroomID, chatroomMap) {
+    firestore.collection('chatroom').doc(chatroomID).set(chatroomMap);
+  }
 }

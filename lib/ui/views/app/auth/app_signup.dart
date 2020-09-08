@@ -67,9 +67,11 @@ class _AppSignupState extends State<AppSignup> {
                                 ),
                                 TextFormField(
                                   validator: (val) {
-                                    return val.isEmpty
-                                        ? 'please provide a valid email'
-                                        : null;
+                                    return RegExp(
+                                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                            .hasMatch(val)
+                                        ? null
+                                        : "Enter correct email";
                                   },
                                   controller: model.emailController,
                                   decoration: InputDecoration(
