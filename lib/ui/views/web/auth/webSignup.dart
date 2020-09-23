@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:message/core/utils/route/routeName.dart';
-import 'package:message/ui/views/app/auth/signupvm.dart';
+import 'package:message/core/services/prov.dart';
 import 'package:provider/provider.dart';
 
 class WebSignUp extends StatelessWidget {

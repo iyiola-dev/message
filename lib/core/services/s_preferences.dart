@@ -13,12 +13,12 @@ class Shared {
     return await shared.setString(emailKey, email);
   }
 
-  static Future<void> getUserName() async {
+  static Future<String> getUserName() async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     return await shared.getString(userNameKey);
   }
 
-  static Future<void> getEmail() async {
+  static Future<String> getEmail() async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     return await shared.getString(emailKey);
   }

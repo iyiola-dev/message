@@ -21,24 +21,32 @@ class HomeWeb extends StatelessWidget {
                     height: Config.yMargin(context, 18),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            children: [
-                              TextFormField(
-                                decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    contentPadding:
-                                        EdgeInsets.symmetric(horizontal: 20),
-                                    hintText: 'search Users',
-                                    prefixIcon: Icon(Icons.search),
-                                    border: OutlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: Colors.white))),
-                              ),
-                              Icon(Icons.search)
-                            ],
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            height: 40,
+                            child: TextFormField(
+                              /*  onChanged: (value) {
+                        db
+                            .getUserByUsername(_searchController.text)
+                            .then((val) {
+                          setState(() {
+                            searchSnapshot = val;
+                          });
+                          print(val.toString());
+                        });
+                        }, */
+                              // controller: _searchController,
+                              decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  hintText: 'search Users',
+                                  prefixIcon: Icon(Icons.search),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      borderSide:
+                                          BorderSide(color: Colors.white))),
+                            ),
                           ),
                         ),
                         Divider(

@@ -2,10 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Db {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  getUserByUsername(String email) async {
+  getUserByUsername(String username) async {
     return await firestore
         .collection("users")
-        .where('name', isEqualTo: email)
+        .where('name', isEqualTo: username)
+        .get();
+  }
+
+  getUserbyE(String email) async {
+    return await firestore
+        .collection("users")
+        .where('email', isEqualTo: email)
         .get();
   }
 
